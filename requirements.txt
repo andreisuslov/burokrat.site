@@ -1,0 +1,11 @@
+# FastHTML and dependencies
+python-fasthtml
+fastcore
+uvicorn
+
+# YAML support
+pyyaml
+
+# Optional: for production deployment
+gunicorn
+python-multipart

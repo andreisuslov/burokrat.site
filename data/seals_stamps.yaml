@@ -1,0 +1,18 @@
+title: "Печати и штампы | Бюрократ"
+
+page:
+  intro:
+    heading: "Печати и штампы"
+    description: "Изготовление печатей и штампов любой сложности"
+  
+  products:
+    section_title: "Наши продукты"
+    items:
+      - title: "Круглые печати"
+        description: "Классические круглые печати для организаций"
+        button_text: "Заказать"
+        button_action: "/contact-form"
+      - title: "Прямоугольные штампы"
+        description: "Штампы любых размеров и форм"
+        button_text: "Заказать"
+        button_action: "/contact-form"

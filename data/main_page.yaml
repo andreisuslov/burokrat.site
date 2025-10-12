@@ -1,0 +1,123 @@
+title: Печати и штампы | Компания "Бюрократ" | Мир печатей
+description: Компания "Бюрократ" | Мир печатей Печати и штампы, оснастки, канцелярские товары, гравировка
+keywords: гравировка, канцелярские товары, канцтовары, печати, печати и штампы, штампы
+canonical_url: https://burokrat.site
+language: ru
+locale: ru-ru
+
+meta_tags:
+  title: Печати и штампы | Компания "Бюрократ" | Мир печатей
+  description: Компания "Бюрократ" | Мир печатей - Печати и штампы, оснастки, канцелярские товары, гравировка
+  url: https://burokrat.site
+  route: /
+
+company_info:
+  name: Бюрократ
+  items:
+    - label: Работаем с 1998 года
+    - for_clients: Клиентам
+      items:
+        - delivery: Доставка
+        - payment: Оплата
+        - warranty: Гарантия
+      
+  phones:
+    - +7 (3852) 62-82-82
+    - +7 (3852) 25-14-91
+    - +7 (3852) 53-20-46
+    - +7 (964) 603-20-46 (отдел по изготовлению печатей и штампов)
+  emails:
+    - L628282@yandex.ru
+    - s628282@gmail.com
+  social_media_links:
+    - label: WhatsApp
+      url: https://wa.me/79646032046
+    - label: Telegram
+      url: https://t.me/burokrat_site
+  addresses:
+    socialist_location:
+      address: Социалистический проспект, 109, г. Барнаул
+      city: Барнаул
+      region: Алтайский край
+      country: Россия
+      working_hours:
+        monday: 09:30 - 18:30
+        tuesday: 09:30 - 18:30
+        wednesday: 09:30 - 18:30
+        thursday: 09:30 - 18:30
+        friday: 09:30 - 18:30
+        saturday: 09:30 - 18:30
+        sunday: 09:30 - 18:30
+    builders_location:
+      address: Строителей проспект, 4, г. Барнаул, Алтайский край
+      city: Барнаул
+      region: Алтайский край
+      country: Россия
+      working_hours:
+        monday: 09:30 - 18:30
+        tuesday: 09:30 - 18:30
+        wednesday: 09:30 - 18:30
+        thursday: 09:30 - 18:30
+        friday: 09:30 - 18:30
+        saturday: 09:30 - 18:30
+        sunday: 09:30 - 18:30
+
+navigation:
+  main_menu:
+    - label: Печати и штампы
+      url: /seals-and-stamps
+      image: /assets/images/stamp.svg
+      description: Изготовление печатей и штампов любой сложности
+    - label: Оснастки
+      url: /self-inking-stamps
+      image: /assets/images/self-inkind-stamp.svg
+      description: Самонаборные и автоматические оснастки
+    - label: Гравировка
+      url: /engraving
+      image: /assets/images/engraving.svg
+      description: Гравировка на металле, пластике и других материалах
+    - label: Канцтовары
+      url: /stationery
+      image: /assets/images/icon.png
+      description: Широкий ассортимент канцелярских товаров
+    - label: О нас
+      url: /about
+      image: /assets/images/icon.png
+      description: Узнайте больше о нашей компании
+
+site_url: https://burokrat.site
+
+contact_info:
+  sections:
+    phones:
+      title: "Телефоны"
+    addresses:
+      title: "Адреса"
+      store:
+        label: "🏪 Магазин"
+        working_hours_label: "Часы работы: "
+      office:
+        label: "🏢 Офис"
+        working_hours_label: "Часы работы: "
+
+footer:
+  sections:
+    phones:
+      title: "Телефоны"
+    email:
+      title: "Электронная почта"
+    addresses:
+      title: "Адреса"
+      store_label: "Магазин: "
+      office_label: "Офис: "
+      working_hours_label: "Время работы: "
+  copyright:
+    year: "2025"
+    separator: " · "
+    privacy_link:
+      text: "Политика в отношении обработки персональных данных
+"
+      url: "/privacy-statemnt"
+    agreement_link:
+      text: "Пользовательское соглашение"
+      url: "/agreement"
