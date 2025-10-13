@@ -2,6 +2,7 @@
 python-fasthtml
 fastcore
 uvicorn
+fastapi
 
 # YAML support
 pyyaml
