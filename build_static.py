@@ -49,6 +49,7 @@ def create_static_site():
         ('/self-inking-stamps', 'self-inking-stamps.html'),
         ('/engraving', 'engraving.html'),
         ('/stationery', 'stationery.html'),
+        ('/products-and-services', 'products-and-services.html'),
         ('/about', 'about.html'),
         ('/contact', 'contact.html'),
     ]
