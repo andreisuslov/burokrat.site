@@ -1,0 +1,31 @@
+title: "Featured Products"
+subtitle: "Тщательно отобранные товары, любимые нашими покупателями"
+cta_text: "Посмотреть все товары"
+cta_url: "/products"
+add_to_cart_text: "Добавить в корзину"
+
+products:
+  - id: 1
+    name: "Набор премиальных перьевых ручек"
+    price: 89.99
+    image: "https://images.unsplash.com/photo-1521669145854-0bd392445939?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMHBlbnMlMjBwZW5jaWxzfGVufDF8fHx8MTc2MDMyNDkwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    rating: 4.9
+    badge: "Бестселлер"
+  - id: 2
+    name: "Коллекция кожаных журналов"
+    price: 45.99
+    image: "https://images.unsplash.com/photo-1612907527100-f02bb2b26b1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxub3RlYm9vayUyMGpvdXJuYWwlMjB3cml0aW5nfGVufDF8fHx8MTc2MDMyNDkxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    rating: 4.8
+    badge: "Новинка"
+  - id: 3
+    name: "Профессиональный набор художественных принадлежностей"
+    price: 124.99
+    image: "https://images.unsplash.com/photo-1588014328208-de6c5973a014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnQlMjBzdXBwbGllcyUyMGNyYWZ0fGVufDF8fHx8MTc2MDMyNDkxMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    rating: 5.0
+    badge: "Премиум"
+  - id: 4
+    name: "Современный набор органайзеров для стола"
+    price: 34.99
+    image: "https://images.unsplash.com/photo-1759884247199-eceeff174430?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNrJTIwYWNjZXNzb3JpZXMlMjBtb2Rlcm58ZW58MXx8fHwxNzYwMzI0OTEwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    rating: 4.7
+    badge: "Популярный"

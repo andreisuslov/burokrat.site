@@ -2,29 +2,55 @@ page_title: "Контакты - Бюрократ"
 title: "Обратная связь"
 intro: "Оставьте свои контактные данные и комментарий — мы ответим как можно скорее."
 
-fields:
-  name:
-    label: "Имя"
-    placeholder: "Введите ваше имя"
-    error: "Пожалуйста, заполните поле имени."
-  email:
-    label: "Email"
-    placeholder: "Введите вашу почту"
-    error: "Пожалуйста, введите корректный email адрес."
-  comment:
-    label: "Комментарий"
-    placeholder: "Опишите ваш вопрос или запрос"
-    error: "Пожалуйста, опишите ваш вопрос или запрос."
+header:
+  badge: "Свяжитесь с нами"
+  title: "Контакты"
+  description: "Есть вопросы? Мы будем рады услышать вас. Отправьте нам сообщение, и мы ответим как можно скорее."
 
-consent:
-  label_prefix: "Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и "
-  privacy_link_text: "политики конфиденциальности"
-  privacy_link_href: "/privacy"
-  error: "Чтобы отправить форму, подтвердите согласие с политикой конфиденциальности."
+info_grid:
+  - icon: "map-pin"
+    title: "Офис (Строителей)"
+    content: "Строителей проспект, 4\nг. Барнаул, Алтайский край, 656002"
+    color: "bg-indigo-100 text-indigo-600"
+    link: "https://www.google.com/maps/search/?api=1&query=Строителей+проспект+4+Барнаул"
+  - icon: "map-pin"
+    title: "Магазин (Социалистический)"
+    content: "Социалистический проспект, 109\nг. Барнаул, Алтайский край"
+    color: "bg-blue-100 text-blue-600"
+    link: "https://www.google.com/maps/search/?api=1&query=Социалистический+проспект+109+Барнаул"
+  - icon: "phone"
+    title: "Позвоните нам"
+    content: "+7 (3852) 62-82-82\n+7 (3852) 25-14-91\n+7 (964) 603-20-46"
+    color: "bg-green-100 text-green-600"
+  - icon: "clock"
+    title: "Часы работы"
+    content: "Понедельник - Воскресенье\n09:30 - 18:30"
+    color: "bg-purple-100 text-purple-600"
 
-submit:
-  label: "Отправить"
-
-success:
-  title: "Спасибо!"
-  message_template: "Ваше сообщение получено, {name}. Мы свяжемся с вами в ближайшее время."
+form:
+  title: "Отправьте нам сообщение"
+  submit_label: "Отправить сообщение"
+  submit_endpoint: "/contact/submit"
+  fields:
+    name:
+      label: "Полное имя"
+      placeholder: "Иван Иванов"
+    company:
+      label: "Название компании"
+      placeholder: "Газпром"
+    email:
+      label: "Email адрес"
+      placeholder: "ivan@example.com"
+    phone:
+      label: "Номер телефона"
+      placeholder: "+7 (123) 456-7890"
+    subject:
+      label: "Тема"
+      placeholder: "Как мы можем вам помочь?"
+    message:
+      label: "Сообщение"
+      placeholder: "Расскажите подробнее о вашем запросе..."
+  consent:
+    label_prefix: "Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и "
+    privacy_link_text: "политики конфиденциальности"
+    privacy_link_href: "/privacy"

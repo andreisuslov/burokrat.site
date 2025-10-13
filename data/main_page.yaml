@@ -62,29 +62,6 @@ company_info:
         saturday: 09:30 - 18:30
         sunday: 09:30 - 18:30
 
-navigation:
-  main_menu:
-    - label: Печати и штампы
-      url: /seals-and-stamps
-      image: /assets/images/stamp.svg
-      description: Изготовление печатей и штампов любой сложности
-    - label: Оснастки
-      url: /self-inking-stamps
-      image: /assets/images/self-inkind-stamp.svg
-      description: Самонаборные и автоматические оснастки
-    - label: Гравировка
-      url: /engraving
-      image: /assets/images/engraving.svg
-      description: Гравировка на металле, пластике и других материалах
-    - label: Канцтовары
-      url: /stationery
-      image: /assets/images/icon.png
-      description: Широкий ассортимент канцелярских товаров
-    - label: О нас
-      url: /about
-      image: /assets/images/icon.png
-      description: Узнайте больше о нашей компании
-
 site_url: https://burokrat.site
 
 contact_info:
@@ -115,8 +92,7 @@ footer:
     year: "2025"
     separator: " · "
     privacy_link:
-      text: "Политика в отношении обработки персональных данных
-"
+      text: "Политика в отношении обработки персональных данных"
       url: "/privacy-statemnt"
     agreement_link:
       text: "Пользовательское соглашение"

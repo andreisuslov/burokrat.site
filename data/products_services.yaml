@@ -1,0 +1,177 @@
+title: Товары и услуги - Бюрократ
+description: Полный каталог наших товаров и услуг
+keywords: товары, услуги, канцелярия, офисные принадлежности
+language: ru
+canonical_url: https://burokrat.site/products-and-services
+site_url: https://burokrat.site
+meta_tags:
+  title: Товары и услуги - Бюрократ
+  description: Полный каталог наших товаров и услуг
+  url: https://burokrat.site/products-and-services
+  type: website
+
+page_title: "Наши товары"
+page_subtitle: "Откройте для себя нашу полную коллекцию премиальных канцелярских товаров"
+
+# Filters Section
+filters_title: "Фильтры"
+categories_title: "Категории"
+price_range_title: "Диапазон цен"
+in_stock_only: "Только в наличии"
+clear_filters: "Очистить все фильтры"
+
+# Search and Sort
+search_placeholder: "Поиск товаров..."
+sort_label: "Рекомендуемые"
+showing_text: "Показано"
+of_text: "из"
+products_text: "товаров"
+
+# Add to Cart
+add_to_cart_text: "Добавить в корзину"
+
+# Categories
+categories:
+  - id: "all"
+    name: "Все товары"
+    checked: true
+  - id: "writing-instruments"
+    name: "Письменные принадлежности"
+    checked: false
+  - id: "notebooks-journals"
+    name: "Блокноты и журналы"
+    checked: false
+  - id: "art-supplies"
+    name: "Художественные принадлежности"
+    checked: false
+  - id: "office-essentials"
+    name: "Офисные принадлежности"
+    checked: false
+  - id: "desk-accessories"
+    name: "Настольные аксессуары"
+    checked: false
+  - id: "craft-supplies"
+    name: "Товары для рукоделия"
+    checked: false
+
+# Products
+products:
+  - id: 1
+    name: "Набор премиальных перьевых ручек"
+    category: "writing-instruments"
+    price: 89.99
+    image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.9
+    reviews: 124
+    badge: "Бестселлер"
+    in_stock: true
+  
+  - id: 2
+    name: "Коллекция цветных маркеров"
+    category: "writing-instruments"
+    price: 24.99
+    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.7
+    reviews: 89
+    badge: "Новинка"
+    in_stock: true
+  
+  - id: 3
+    name: "Профессиональный скетчбук A4"
+    category: "notebooks-journals"
+    price: 18.99
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.8
+    reviews: 156
+    badge: ""
+    in_stock: true
+  
+  - id: 4
+    name: "Набор акварельных красок"
+    category: "art-supplies"
+    price: 34.99
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.6
+    reviews: 73
+    badge: ""
+    in_stock: true
+  
+  - id: 5
+    name: "Кожаный деловой блокнот"
+    category: "notebooks-journals"
+    price: 45.99
+    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.9
+    reviews: 201
+    badge: "Премиум"
+    in_stock: true
+  
+  - id: 6
+    name: "Органайзер для стола из дерева"
+    category: "desk-accessories"
+    price: 29.99
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.5
+    reviews: 92
+    badge: ""
+    in_stock: true
+  
+  - id: 7
+    name: "Набор цветной бумаги для скрапбукинга"
+    category: "craft-supplies"
+    price: 15.99
+    image: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.4
+    reviews: 67
+    badge: ""
+    in_stock: true
+  
+  - id: 8
+    name: "Профессиональные кисти для рисования"
+    category: "art-supplies"
+    price: 42.99
+    image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.8
+    reviews: 134
+    badge: ""
+    in_stock: true
+  
+  - id: 9
+    name: "Степлер металлический премиум"
+    category: "office-essentials"
+    price: 19.99
+    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.6
+    reviews: 88
+    badge: ""
+    in_stock: true
+  
+  - id: 10
+    name: "Набор гелевых ручек 24 цвета"
+    category: "writing-instruments"
+    price: 16.99
+    image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.7
+    reviews: 145
+    badge: "Популярный"
+    in_stock: true
+  
+  - id: 11
+    name: "Подставка для ручек из мрамора"
+    category: "desk-accessories"
+    price: 38.99
+    image: "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.9
+    reviews: 76
+    badge: ""
+    in_stock: true
+  
+  - id: 12
+    name: "Набор для каллиграфии"
+    category: "writing-instruments"
+    price: 54.99
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+    rating: 4.8
+    reviews: 112
+    badge: ""
+    in_stock: true

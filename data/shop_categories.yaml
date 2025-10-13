@@ -1,0 +1,39 @@
+title: Покупки по категориям
+subtitle: Просмотрите нашу обширную коллекцию, организованную специально для вас
+
+categories:
+  - icon: /assets/images/pen.svg
+    name: Письменные принадлежности
+    description: Ручки, карандаши и маркеры
+    color: bg-blue-500
+    url: /products/writing-instruments
+  
+  - icon: /assets/images/book-open.svg
+    name: Блокноты и журналы
+    description: Премиальная бумажная продукция
+    color: bg-purple-500
+    url: /products/notebooks
+  
+  - icon: /assets/images/palette.svg
+    name: Художественные принадлежности
+    description: Краски, кисти и многое другое
+    color: bg-pink-500
+    url: /products/art-supplies
+  
+  - icon: /assets/images/briefcase.svg
+    name: Офисные принадлежности
+    description: Всё для работы
+    color: bg-indigo-500
+    url: /products/office-essentials
+  
+  - icon: /assets/images/scissors.svg
+    name: Товары для рукоделия
+    description: Инструменты для творчества и рукоделия
+    color: bg-orange-500
+    url: /products/craft-supplies
+  
+  - icon: /assets/images/sparkles.svg
+    name: Настольные аксессуары
+    description: Организуйте пространство стильно
+    color: bg-teal-500
+    url: /products/desk-accessories

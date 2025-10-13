@@ -1,0 +1,13 @@
+main_menu:
+  - label: Товары и услуги
+    url: /products-and-services
+    image: /assets/images/icon.png
+    description: Наши товары и услуги
+  - label: О нас
+    url: /about
+    image: /assets/images/icon.png
+    description: Узнайте больше о нашей компании
+  - label: Контакты
+    url: /contact
+    image: /assets/images/icon.png
+    description: Свяжитесь с нами
