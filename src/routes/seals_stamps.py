@@ -1,12 +1,14 @@
 from fasthtml.common import *
 from src.components import Layout
 from src.config import get_seals_stamps_data
+import logging
 
 def register_seals_stamps_route(rt):
     """Register seals and stamps page route."""
     
     @rt('/seals-and-stamps')
     def get():
+        logging.info("🔖 Serving seals & stamps page (/seals-and-stamps)")
         data = get_seals_stamps_data()
         page_data = data.get('page', {})
         

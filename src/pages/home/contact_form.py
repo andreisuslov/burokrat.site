@@ -27,12 +27,24 @@ def load_validation_script(error_messages):
 def build_contact_form(contact):
     """Build the contact form section with all fields and validation"""
     
-    # Prepare error messages from contact data
+    # Handle both old and new data structures
+    # New structure has 'form' key, old structure has fields at top level
+    if 'form' in contact:
+        form_data = contact['form']
+        fields = form_data['fields']
+        consent = form_data.get('consent', {})
+        submit_label = form_data.get('submit_label', 'Отправить')
+    else:
+        fields = contact['fields']
+        consent = contact.get('consent', {})
+        submit_label = contact.get('submit', {}).get('label', 'Отправить')
+    
+    # Prepare error messages from contact data (with defaults if not present)
     error_messages = {
-        'name': contact['fields']['name']['error'],
-        'email': contact['fields']['email']['error'],
-        'comment': contact['fields']['comment']['error'],
-        'consent': contact['consent']['error']
+        'name': fields.get('name', {}).get('error', 'Пожалуйста, введите ваше имя'),
+        'email': fields.get('email', {}).get('error', 'Пожалуйста, введите корректный email'),
+        'comment': fields.get('message', fields.get('comment', {})).get('error', 'Пожалуйста, введите сообщение'),
+        'consent': consent.get('error', 'Вы должны согласиться с условиями')
     }
     
     # Load validation script
@@ -44,33 +56,33 @@ def build_contact_form(contact):
             P(contact['intro']),
             Form(
                 Div(
-                    Label(contact['fields']['name']['label'], fr='contact-name'),
+                    Label(fields['name']['label'], fr='contact-name'),
                     Input(
                         type='text',
                         name='name',
                         id='contact-name',
-                        placeholder=contact['fields']['name']['placeholder'],
+                        placeholder=fields['name']['placeholder'],
                         required=True
                     ),
                     cls='form-group'
                 ),
                 Div(
-                    Label(contact['fields']['email']['label'], fr='contact-email'),
+                    Label(fields['email']['label'], fr='contact-email'),
                     Input(
                         type='email',
                         name='email',
                         id='contact-email',
-                        placeholder=contact['fields']['email']['placeholder'],
+                        placeholder=fields['email']['placeholder'],
                         required=True
                     ),
                     cls='form-group'
                 ),
                 Div(
-                    Label(contact['fields']['comment']['label'], fr='contact-comment'),
+                    Label(fields.get('message', fields.get('comment', {}))['label'], fr='contact-comment'),
                     Textarea(
                         name='comment',
                         id='contact-comment',
-                        placeholder=contact['fields']['comment']['placeholder'],
+                        placeholder=fields.get('message', fields.get('comment', {}))['placeholder'],
                         rows=4,
                         required=True
                     ),
@@ -84,16 +96,16 @@ def build_contact_form(contact):
                         required=True
                     ),
                     Label(
-                        contact['consent']['label_prefix'],
+                        consent['label_prefix'],
                         A(
-                            contact['consent']['privacy_link_text'],
-                            href=contact['consent']['privacy_link_href']
+                            consent['privacy_link_text'],
+                            href=consent['privacy_link_href']
                         ),
                         fr='contact-consent'
                     ),
                     cls='form-group consent-row'
                 ),
-                Button(contact['submit']['label'], type='submit', cls='btn btn-primary'),
+                Button(submit_label, type='submit', cls='btn btn-primary'),
                 hx_post='/contact/submit',
                 hx_target='#contact-status',
                 hx_swap='innerHTML',

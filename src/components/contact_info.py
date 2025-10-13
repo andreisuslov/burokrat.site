@@ -1,6 +1,7 @@
 from fasthtml.common import *
 from src.config import get_data
 from src.utils.phone_formatter import format_phone_number
+from src.pages.home.contact_form import build_contact_form
 
 def create_service_card(item):
     """Create a service card component."""
@@ -34,7 +35,8 @@ def create_service_card(item):
             cls='service-card-content'
         ),
         href=item['url'],
-        cls='service-card'
+        cls='service-card',
+        draggable='false'
     )
 
 def create_company_items(items):
@@ -156,3 +158,7 @@ def create_contact_info():
         create_social_media_section(company_info.get('social_media_links', [])),
         cls='contact-info-container'
     )
+
+def create_contact(data):
+    """Create the contact section component."""
+    return build_contact_form(data)

@@ -1,12 +1,14 @@
 from fasthtml.common import *
 from src.components import Layout
 from src.config import get_self_inking_stamps_data
+import logging
 
 def register_self_inking_stamps_route(rt):
     """Register self-inking stamps page route."""
     
     @rt('/self-inking-stamps')
     def get():
+        logging.info("🖊️  Serving self-inking stamps page (/self-inking-stamps)")
         data = get_self_inking_stamps_data()
         page_data = data.get('page', {})
         

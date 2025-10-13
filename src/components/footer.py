@@ -1,11 +1,9 @@
 from fasthtml.common import *
-from src.config import get_data
 from src.utils.phone_formatter import format_phone_number
 from src.components.contact_info import create_company_items, create_social_media_section
 
-def create_footer():
+def create_footer(data):
     """Create footer component with contact information."""
-    data = get_data()
     footer_data = data.get('footer', {})
     # Find the first simple label item (e.g., «Работаем с 1998 года») to show inside the gold box
     company_items = data['company_info'].get('items', [])
@@ -58,26 +56,16 @@ def create_footer():
             ),
             Div(
                 H4(footer_data.get('sections', {}).get('addresses', {}).get('title', 'Адреса')),
-                Div(
+                *[Div(
                     P(
-                        Strong('🏬 ', footer_data.get('sections', {}).get('addresses', {}).get('store_label', 'Магазин: '), cls='location-label'),
-                        A(data['company_info']['addresses']['socialist_location']['address'],
-                          href=f"https://www.google.com/maps/search/?api=1&query={data['company_info']['addresses']['socialist_location']['address'].replace(' ', '+')}",
+                        Strong(f"{office.get('icon', '')} ", office.get('name', ''), ': ', cls='location-label'),
+                        A(office.get('address', ''),
+                          href=f"https://www.google.com/maps/search/?api=1&query={office.get('maps_query', '')}",
                           target='_blank')
                     ),
-                    P(f"{footer_data.get('sections', {}).get('addresses', {}).get('working_hours_label', 'Время работы: ')}{data['company_info']['addresses']['socialist_location']['working_hours']['monday']}"),
+                    P(f"{footer_data.get('sections', {}).get('addresses', {}).get('working_hours_label', 'Время работы: ')}{office.get('hours', {}).get('weekdays', '')}"),
                     cls='location'
-                ),
-                Div(
-                    P(
-                        Strong('🏢 ', footer_data.get('sections', {}).get('addresses', {}).get('office_label', 'Офис: '), cls='location-label'),
-                        A(data['company_info']['addresses']['builders_location']['address'],
-                          href=f"https://www.google.com/maps/search/?api=1&query={data['company_info']['addresses']['builders_location']['address'].replace(' ', '+')}",
-                          target='_blank')
-                    ),
-                    P(f"{footer_data.get('sections', {}).get('addresses', {}).get('working_hours_label', 'Время работы: ')}{data['company_info']['addresses']['builders_location']['working_hours']['monday']}"),
-                    cls='location'
-                ),
+                ) for office in data.get('locations', {}).get('offices', [])],
                 cls='footer-section'
             ),
             cls='footer-content'

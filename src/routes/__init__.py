@@ -9,6 +9,8 @@ from .static_files import register_static_route
 from .privacy import register_privacy_route
 from .clients import register_clients_route
 from .agreement import register_agreement_route
+from .products_services import register_products_services_route
+from .featured_products import register_featured_products_route
 
 def register_all_routes(rt):
     """Register all application routes."""
@@ -23,3 +25,5 @@ def register_all_routes(rt):
     register_privacy_route(rt)
     register_clients_route(rt)
     register_agreement_route(rt)
+    register_products_services_route(rt)
+    register_featured_products_route(rt)

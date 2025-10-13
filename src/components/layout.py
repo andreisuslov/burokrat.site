@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from src.config import get_data
+from src.config import get_data, get_footer_data
 from .header import create_header
 from .footer import create_footer
 
@@ -16,11 +16,15 @@ def Layout(title, *content, header=None, footer=None, sidebar=None, head_meta=No
     """
     data = get_data()
 
-    def _resolve(comp, default_factory):
+    def _resolve(comp, default_factory, use_footer_data=False):
         if comp is None:
-            return default_factory()
+            comp_data = get_footer_data() if use_footer_data else data
+            return default_factory(comp_data)
         if callable(comp):
-            return comp()
+            result = comp()
+            # If it's a component function that needs data, pass it
+            comp_data = get_footer_data() if use_footer_data else data
+            return result if result is not None else default_factory(comp_data)
         return comp
     
     def _as_nodes(x):
@@ -43,7 +47,7 @@ def Layout(title, *content, header=None, footer=None, sidebar=None, head_meta=No
 
     # Resolve header/footer/sidebar nodes
     header_nodes = _as_nodes(_resolve(header, create_header))
-    footer_nodes = _as_nodes(_resolve(footer, create_footer))
+    footer_nodes = _as_nodes(_resolve(footer, create_footer, use_footer_data=True))
     sidebar_nodes = _as_nodes(_resolve(sidebar, lambda: None)) if sidebar is not None else None
 
     # Build main content with optional sidebar layout
@@ -61,6 +65,7 @@ def Layout(title, *content, header=None, footer=None, sidebar=None, head_meta=No
         Head(
             Meta(charset='UTF-8'),
             Meta(name='viewport', content='width=device-width, initial-scale=1.0'),
+            Meta(name='format-detection', content='telephone=no'),
             Meta(name='description', content=meta_desc),
             Meta(name='keywords', content=meta_keywords),
             # Open Graph meta tags

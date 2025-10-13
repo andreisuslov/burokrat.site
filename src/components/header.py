@@ -1,13 +1,13 @@
 from fasthtml.common import *
-from src.config import get_data
+from src.config import get_navigation_data
 
-def create_header():
+def create_header(data):
     """Create header component with logo and navigation."""
-    data = get_data()
     
+    nav_data = get_navigation_data()
     nav_items = [
         Li(A(item['label'], href=item['url'])) 
-        for item in data['navigation']['main_menu']
+        for item in nav_data['main_menu']
     ]
     
     return [

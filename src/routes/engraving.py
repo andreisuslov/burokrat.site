@@ -1,11 +1,13 @@
 from fasthtml.common import *
 from src.components import Layout
+import logging
 
 def register_engraving_route(rt):
     """Register engraving page route."""
     
     @rt('/engraving')
     def get():
+        logging.info("🔨 Serving engraving page (/engraving)")
         return Layout(
             'Гравировка | Бюрократ',
             Section(

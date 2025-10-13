@@ -1,12 +1,14 @@
 from fasthtml.common import *
 from src.components import Layout
 from src.config import get_stationery_data
+import logging
 
 def register_stationery_route(rt):
     """Register stationery page route."""
     
     @rt('/stationery')
     def get():
+        logging.info("📝 Serving stationery page (/stationery)")
         data = get_stationery_data()
         page_data = data.get('page', {})
         

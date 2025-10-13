@@ -24,8 +24,12 @@ def load_about_data():
     return _data['about']
 
 def get_data():
-    """Get main page data."""
-    return _data.get('main', {})
+    """Get main page data with FAQ."""
+    main_data = _data.get('main', {})
+    # Add FAQ data if available
+    if 'faq' not in main_data:
+        main_data['faq'] = get_faq_data()
+    return main_data
 
 def get_about_data():
     """Get about page data."""
@@ -123,3 +127,98 @@ def get_agreement_data():
     if 'agreement' not in _data:
         load_agreement_data()
     return _data['agreement']
+
+def load_hero_data():
+    """Load hero section data from YAML file."""
+    global _data
+    if 'hero' not in _data:
+        _data['hero'] = load_yaml_file('hero.yaml')
+    return _data['hero']
+
+def get_hero_data():
+    """Get hero section data."""
+    if 'hero' not in _data:
+        load_hero_data()
+    return _data['hero']
+
+def get_header_data():
+    """Get header data (from main page data)."""
+    return get_data()
+
+def get_footer_data():
+    """Get footer data (merged from main page and about data for locations)."""
+    main_data = get_data()
+    about_data = get_about_data()
+    # Merge locations from about data into main data
+    footer_data = main_data.copy()
+    footer_data['locations'] = about_data.get('locations', {})
+    return footer_data
+
+def get_services_data():
+    """Get services data (from navigation data)."""
+    return get_navigation_data()
+
+def load_navigation_data():
+    """Load navigation data from YAML file."""
+    global _data
+    if 'navigation' not in _data:
+        _data['navigation'] = load_yaml_file('navigation.yaml')
+    return _data['navigation']
+
+def get_navigation_data():
+    """Get navigation data."""
+    if 'navigation' not in _data:
+        load_navigation_data()
+    return _data['navigation']
+
+def load_products_services_data():
+    """Load products and services page data from YAML file."""
+    global _data
+    if 'products_services' not in _data:
+        _data['products_services'] = load_yaml_file('products_services.yaml')
+    return _data['products_services']
+
+def get_products_services_data():
+    """Get products and services page data."""
+    if 'products_services' not in _data:
+        load_products_services_data()
+    return _data['products_services']
+
+def load_shop_categories_data():
+    """Load shop categories data from YAML file."""
+    global _data
+    if 'shop_categories' not in _data:
+        _data['shop_categories'] = load_yaml_file('shop_categories.yaml')
+    return _data['shop_categories']
+
+def get_shop_categories_data():
+    """Get shop categories data."""
+    if 'shop_categories' not in _data:
+        load_shop_categories_data()
+    return _data['shop_categories']
+
+def load_featured_products_data():
+    """Load featured products data from YAML file."""
+    global _data
+    if 'featured_products' not in _data:
+        _data['featured_products'] = load_yaml_file('featured_products.yaml')
+    return _data['featured_products']
+
+def get_featured_products_data():
+    """Get featured products data."""
+    if 'featured_products' not in _data:
+        load_featured_products_data()
+    return _data['featured_products']
+
+def load_faq_data():
+    """Load FAQ data from YAML file."""
+    global _data
+    if 'faq' not in _data:
+        _data['faq'] = load_yaml_file('faq.yaml')
+    return _data['faq']
+
+def get_faq_data():
+    """Get FAQ data."""
+    if 'faq' not in _data:
+        load_faq_data()
+    return _data['faq']
