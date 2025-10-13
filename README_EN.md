@@ -170,18 +170,59 @@ def Layout(title, *content):
 
 ## 🌐 Deployment
 
-### Local Testing
+### Netlify Deployment (Recommended)
+
+This project is configured for static site deployment on Netlify.
+
+#### Prerequisites
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/) installed: `npm install -g netlify-cli`
+- Netlify account linked: `netlify login`
+
+#### Quick Deploy
+```bash
+# Using the deployment script (recommended)
+./deploy.sh
+
+# Or manually
+netlify deploy --prod
+```
+
+The deployment process:
+1. Runs `build_static.py` to generate static HTML files
+2. Copies assets to the `dist/` directory
+3. Deploys the `dist/` directory to Netlify
+4. Makes the site live at https://burokrat.netlify.app
+
+#### Configuration
+All deployment settings are in `netlify.toml`:
+- Build command: `python3 build_static.py`
+- Publish directory: `dist`
+- Python version: 3.11
+- URL redirects for clean URLs
+- Security headers
+- Cache control
+
+#### Build Locally
+To test the static build before deploying:
+```bash
+python3 build_static.py
+```
+
+This generates all pages in the `dist/` directory.
+
+### Local Development Testing
 ```bash
 python3 app.py
 ```
 
-### Production with Gunicorn
+### Production with Gunicorn (Alternative)
+For server-based deployment instead of static hosting:
 ```bash
 pip install gunicorn
 gunicorn app:app --bind 0.0.0.0:8000 --workers 4
 ```
 
-### Docker
+### Docker (Alternative)
 
 Create `Dockerfile`:
 ```dockerfile
@@ -209,7 +250,7 @@ docker build -t burokrat-site .
 docker run -p 5001:5001 burokrat-site
 ```
 
-### Docker Compose
+### Docker Compose (Alternative)
 
 Create `docker-compose.yml`:
 ```yaml
