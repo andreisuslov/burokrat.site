@@ -7,15 +7,18 @@ import json
 def load_validation_script(error_messages):
     """Load and populate the contact validation JavaScript with error messages"""
     script_path = Path(__file__).parent / 'contact_validation.js'
+    if not script_path.is_file():
+        # Validation script missing – return an empty script to avoid runtime errors
+        return ''
     with open(script_path, 'r', encoding='utf-8') as f:
         script_template = f.read()
     
     # Build the error messages object
     error_messages_json = json.dumps({
-        'name': error_messages['name'],
-        'email': error_messages['email'],
-        'comment': error_messages['comment'],
-        'consent': error_messages['consent']
+        'name': error_messages.get('name', ''),
+        'email': error_messages.get('email', ''),
+        'comment': error_messages.get('comment', ''),
+        'consent': error_messages.get('consent', '')
     }, ensure_ascii=False)
     
     # Replace placeholder with actual error messages
