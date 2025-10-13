@@ -24,14 +24,15 @@
                 cache: 'no-cache'
             });
             
-            const lastModified = response.headers.get('Last-Modified') || 
-                                 response.headers.get('ETag') || 
-                                 Date.now().toString();
-            
+            const lastModifiedHeader = response.headers.get('Last-Modified') || response.headers.get('ETag');
+            if (!lastModifiedHeader) {
+                // No reliable modification info; skip checking
+                return;
+            }
+            const lastModified = lastModifiedHeader;
             if (data.lastModified && data.lastModified !== lastModified) {
                 reloadCSS(href, data.link);
             }
-            
             data.lastModified = lastModified;
         } catch (error) {
             // Silently fail - file might not be accessible
