@@ -13,11 +13,11 @@ def register_featured_products_route(rt):
         data = {'featured_products': get_featured_products_data()}
         
         return Layout(
-            'Featured Products | Burokrat',
+            'Избранные товары | Бюрократ',
             Section(
                 Div(
-                    H1('Featured Products Demo', cls='page-title'),
-                    P('This is a demo page showcasing the featured products component.', cls='page-subtitle'),
+                    H1('Избранные товары', cls='page-title'),
+                    P('Тщательно отобранные товары, любимые нашими покупателями', cls='page-subtitle'),
                     cls='page-intro'
                 ),
                 cls='section'

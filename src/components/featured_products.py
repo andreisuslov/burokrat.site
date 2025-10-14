@@ -4,12 +4,12 @@ from fasthtml.common import *
 def create_featured_products(data):
     """Create featured products section with product cards."""
     featured_data = data.get('featured_products', {})
-    title = featured_data.get('title', 'Featured Products')
-    subtitle = featured_data.get('subtitle', 'Handpicked items loved by our customers')
+    title = featured_data.get('title', 'Избранные товары')
+    subtitle = featured_data.get('subtitle', 'Тщательно отобранные товары, любимые нашими покупателями')
     products = featured_data.get('products', [])
-    cta_text = featured_data.get('cta_text', 'View All Products')
+    cta_text = featured_data.get('cta_text', 'Посмотреть все товары')
     cta_url = featured_data.get('cta_url', '/products')
-    add_to_cart_text = featured_data.get('add_to_cart_text', 'Add to Cart')
+    add_to_cart_text = featured_data.get('add_to_cart_text', 'Добавить в корзину')
     
     # Badge color mapping (supports both English and Russian)
     badge_colors = {

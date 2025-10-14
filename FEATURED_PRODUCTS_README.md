@@ -49,26 +49,26 @@ def render():
 Edit `/data/featured_products.yaml`:
 
 ```yaml
-title: "Featured Products"
-subtitle: "Handpicked items loved by our customers"
-cta_text: "View All Products"
+title: "Избранные товары"
+subtitle: "Отобранные товары любимыми нашими клиентами"
+cta_text: "Посмотреть все товары"
 cta_url: "/products"
 
 products:
   - id: 1
-    name: "Product Name"
+    name: "Наименование товара"
     price: 99.99
     image: "https://example.com/image.jpg"
     rating: 4.9
-    badge: "Bestseller"  # Options: Bestseller, New, Premium, Popular
+    badge: "Бестселлер"
 ```
 
 ## Badge Colors
 
-- **Bestseller**: Indigo gradient (#6366f1 → #4f46e5)
-- **New**: Blue gradient (#3b82f6 → #2563eb)
-- **Premium**: Purple gradient (#8b5cf6 → #7c3aed)
-- **Popular**: Indigo gradient (#6366f1 → #4f46e5)
+- **Бестселлер**: Indigo gradient (#6366f1 → #4f46e5)
+- **Новинка**: Blue gradient (#3b82f6 → #2563eb)
+- **Премиум**: Purple gradient (#8b5cf6 → #7c3aed)
+- **Популярный**: Indigo gradient (#6366f1 → #4f46e5)
 
 ## Responsive Breakpoints
 
