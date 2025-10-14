@@ -1,7 +1,7 @@
 from fasthtml.common import *
 from src.config import get_data
 from src.utils.phone_formatter import format_phone_number
-from src.pages.home.contact_form import build_contact_form
+from src.components.contact_form import create_contact_form
 
 def create_service_card(item):
     """Create a service card component."""
@@ -161,4 +161,7 @@ def create_contact_info():
 
 def create_contact(data):
     """Create the contact section component."""
-    return build_contact_form(data)
+    # Use the modern contact form from contact page
+    # The data structure should match contact.yaml format with 'form' key
+    form_data = data.get('form', data)
+    return create_contact_form(form_data)
