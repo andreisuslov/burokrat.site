@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-/* Prevent all images from being draggable */
+/* Prevent all images from being draggable and ensure they don't overflow */
 img {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -25,6 +25,8 @@ img {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    max-width: 100%;
+    height: auto;
 }
 
 html,
@@ -236,8 +238,21 @@ nav a:hover {
 main {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
     flex: 1;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    main {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        padding: 0 2rem;
+    }
 }
 
 footer {
@@ -465,16 +480,27 @@ footer {
 .product-grid,
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+    .service-grid,
+    .product-grid,
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
 }
 
 @media (min-width: 1024px) {
     .service-grid,
     .product-grid,
     .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 3rem;
+        margin-top: 3rem;
     }
 }
 
@@ -667,28 +693,6 @@ footer {
       background: rgba(255, 255, 255, 0.85);
   }
 
-  /* Contact form section container and width */
-  .contact-form-section {
-    padding: 3rem 0;
-    background: rgba(8, 10, 166, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(8, 10, 166, 0.2);
-    border-radius: 24px;
-    margin: 2rem 0;
-    box-shadow: 0 8px 32px rgba(8, 10, 166, 0.1);
-  }
-
-  .contact-form-content {
-    max-width: 680px; /* similar to example wide form */
-    margin: 0 auto;
-  }
-
-  .contact-form-content > p {
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    opacity: 0.9;
-  }
 
   .contact-form .form-group input::placeholder,
   .contact-form .form-group textarea::placeholder {
@@ -927,13 +931,11 @@ footer {
 }
 
 /* Sections */
-/* Shared full-width section base styles */
+/* Shared full-width section base styles - mobile-friendly approach */
 .section {
     position: relative;
     overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 100%;
     margin-bottom: 0;
 }
 
@@ -967,26 +969,45 @@ footer {
     }
     
     .section .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 
 /* Hero Section - specific overrides */
 .hero-section {
-    margin-top: -2rem;
+    margin-top: -1rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        margin-top: -1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        margin-top: -2rem;
+    }
 }
 
 /* Grid layout for hero */
 .hero-grid {
     display: grid;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero-grid {
+        gap: 2.5rem;
+    }
 }
 
 @media (min-width: 1024px) {
     .hero-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3rem;
     }
 }
 
@@ -994,9 +1015,15 @@ footer {
 .content-column {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .content-column {
+        gap: 2rem;
+    }
 }
 
 .content-column > *:not(:last-child) {
@@ -1020,11 +1047,23 @@ footer {
 
 /* Hero Main Heading */
 .hero-section h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.025em;
     line-height: 1.1;
     margin: 0;
+}
+
+@media (min-width: 640px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
 }
 
 .hero-section h1 .highlight {
@@ -1034,10 +1073,22 @@ footer {
 
 /* Paragraph Text */
 .subtitle {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #4b5563;
     max-width: 32rem;
     margin: 0;
+}
+
+@media (min-width: 640px) {
+    .subtitle {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .subtitle {
+        font-size: 1.25rem;
+    }
 }
 
 /* Button group */
@@ -1127,7 +1178,7 @@ footer {
 .hero-image {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
@@ -1136,9 +1187,17 @@ footer {
     margin: 0 auto;
 }
 
+/* Tablet and up */
+@media (min-width: 768px) {
+    .hero-image {
+        max-width: 500px;
+    }
+}
+
 /* Desktop: fixed dimensions for hero image */
 @media (min-width: 1024px) {
     .hero-image {
+        max-width: 600px;
         width: 600px;
         height: 600px;
     }
@@ -1192,7 +1251,20 @@ footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
 }
 
 /* About Us Page Styles */
@@ -3130,6 +3202,8 @@ footer {
     border: none;
     cursor: pointer;
     text-align: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
     font-size: 1.125rem;
     font-weight: 600;
     color: #111827;
@@ -3146,6 +3220,7 @@ footer {
 
 .accordion-trigger .pr-4 {
     padding-right: 1rem;
+    padding-left: 1rem;
     flex: 1;
 }
 
@@ -3155,6 +3230,8 @@ footer {
     justify-content: center;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .accordion-trigger.active .accordion-icon-wrapper {
@@ -3176,12 +3253,18 @@ footer {
 
 .accordion-content.active {
     padding-bottom: 1.25rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 0.25rem;
 }
 
 .accordion-content-inner {
     color: #4b5563;
     font-size: 1rem;
     line-height: 1.75;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 0.25rem;
 }
 
 .text-4xl {
@@ -3215,7 +3298,6 @@ footer {
     
     .accordion-trigger {
         font-size: 1rem;
-        padding: 1rem 0;
     }
     
     .accordion-content-inner {
@@ -3545,5 +3627,213 @@ footer {
     .dropdown-width-long {
         width: 100%;
         max-width: 100%;
+    }
+}
+
+/* ===== 404 Error Page Styles ===== */
+.error-404-page {
+    display: grid;
+    place-items: center;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    max-width: none;
+    margin: 0;
+}
+
+.error-404__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.face {
+    display: block;
+    width: 12em;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.error-404__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.error-404__message {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    margin: 0;
+    opacity: 0.8;
+    max-width: 500px;
+}
+
+.error-404__back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(8, 10, 166, 0.2);
+}
+
+.error-404__back-btn:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(8, 10, 166, 0.3);
+}
+
+.error-404__back-btn:active {
+    transform: translateY(0);
+}
+
+.face__eyes,
+.face__eye-lid,
+.face__mouth-left,
+.face__mouth-right,
+.face__nose,
+.face__pupil {
+    animation: eyes 1s 0.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.face__eye-lid,
+.face__pupil {
+    animation-duration: 4s;
+    animation-delay: 1.3s;
+    animation-iteration-count: infinite;
+}
+
+.face__eye-lid {
+    animation-name: eye-lid;
+}
+
+.face__mouth-left,
+.face__mouth-right {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.face__mouth-left {
+    animation-name: mouth-left;
+}
+
+.face__mouth-right {
+    animation-name: mouth-right;
+}
+
+.face__nose {
+    animation-name: nose;
+}
+
+.face__pupil {
+    animation-name: pupil;
+}
+
+/* Animations */
+@keyframes eye-lid {
+    from,
+    40%,
+    45%,
+    to {
+        transform: translateY(0);
+    }
+    42.5% {
+        transform: translateY(17.5px);
+    }
+}
+
+@keyframes eyes {
+    from {
+        transform: translateY(112.5px);
+    }
+    to {
+        transform: translateY(15px);
+    }
+}
+
+@keyframes pupil {
+    from,
+    37.5%,
+    40%,
+    45%,
+    87.5%,
+    to {
+        stroke-dashoffset: 0;
+        transform: translate(0, 0);
+    }
+    12.5%,
+    25%,
+    62.5%,
+    75% {
+        stroke-dashoffset: 0;
+        transform: translate(-35px, 0);
+    }
+    42.5% {
+        stroke-dashoffset: 35;
+        transform: translate(0, 17.5px);
+    }
+}
+
+@keyframes mouth-left {
+    from,
+    50% {
+        stroke-dashoffset: -102;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes mouth-right {
+    from,
+    50% {
+        stroke-dashoffset: 102;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes nose {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0, 22.5px);
+    }
+}
+
+/* Responsive adjustments for 404 page */
+@media (max-width: 768px) {
+    .error-404__content {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .face {
+        width: 10em;
+        margin-bottom: 0.5rem;
+    }
+    
+    .error-404__title {
+        font-size: 1.5rem;
+    }
+    
+    .error-404__message {
+        font-size: 1rem;
+    }
+    
+    .error-404__back-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
     }
 }
