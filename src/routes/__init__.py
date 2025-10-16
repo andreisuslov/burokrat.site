@@ -5,6 +5,7 @@ from .self_inking_stamps import register_self_inking_stamps_route
 from .engraving import register_engraving_route
 from .stationery import register_stationery_route
 from .contact import register_contact_routes
+from .admin import register_admin_routes
 from .static_files import register_static_route
 from .privacy import register_privacy_route
 from .clients import register_clients_route
@@ -22,6 +23,7 @@ def register_all_routes(rt):
     register_engraving_route(rt)
     register_stationery_route(rt)
     register_contact_routes(rt)
+    register_admin_routes(rt)
     register_static_route(rt)
     register_privacy_route(rt)
     register_clients_route(rt)
