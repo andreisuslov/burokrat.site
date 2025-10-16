@@ -1,7 +1,6 @@
 from fasthtml.common import *
 from src.config import get_contact_data, get_data
 from src.components import (
-    create_contact_info, 
     create_contact_header, 
     create_contact_info_grid, 
     create_contact_form,

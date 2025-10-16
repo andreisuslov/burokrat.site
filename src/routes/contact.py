@@ -3,6 +3,8 @@ from src.config import get_contact_data
 from src.components import Layout
 from src.pages.contact.view import render as render_contact
 from src.services.email_service import get_email_service
+from src.db import get_db_session
+from src.models import ContactSubmission
 import logging
 
 def register_contact_routes(rt):
@@ -37,6 +39,28 @@ def register_contact_routes(rt):
         # Send email via SendGrid
         email_service = get_email_service()
         success, error_message = email_service.send_contact_form_email(form_data)
+        
+        # Save to database
+        session = get_db_session()
+        try:
+            submission = ContactSubmission(
+                name=name,
+                email=email,
+                phone=phone,
+                subject=subject,
+                message=actual_message,
+                company=company,
+                email_sent=success,
+                email_error=error_message if not success else None
+            )
+            session.add(submission)
+            session.commit()
+            logging.info(f"💾 Contact submission saved to database (ID: {submission.id})")
+        except Exception as e:
+            logging.error(f"❌ Failed to save submission to database: {e}")
+            session.rollback()
+        finally:
+            session.close()
         
         data = get_contact_data()
         
