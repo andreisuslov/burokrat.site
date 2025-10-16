@@ -4,6 +4,9 @@ fastcore
 uvicorn
 fastapi
 
+# Database
+sqlmodel
+
 # YAML support
 pyyaml
 

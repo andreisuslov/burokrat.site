@@ -27,6 +27,17 @@ def create_static_site():
         shutil.copytree(assets_src, assets_dst)
         print(f"✅ Copied assets to {assets_dst}")
     
+    # Copy database
+    db_src = Path("data/burokrat.db")
+    if db_src.exists():
+        data_dst = dist_dir / "data"
+        data_dst.mkdir(exist_ok=True)
+        shutil.copy2(db_src, data_dst / "burokrat.db")
+        print(f"✅ Copied database to {data_dst}")
+    else:
+        print(f"⚠️  Warning: Database not found at {db_src}")
+        print("   Run 'python3 migrate_products.py' to create and populate the database")
+    
     # Initialize FastHTML app
     app, rt = fast_app(
         hdrs=(

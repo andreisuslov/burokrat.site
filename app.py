@@ -16,6 +16,8 @@ from fasthtml.common import *
 from fastapi import FastAPI
 from src.config import load_page_data
 from src.routes import register_all_routes
+from src.db import create_db_and_tables
+from src.models import ContactSubmission, Product, Category  # Import models to register them
 
 # Initialize FastHTML app (ASGI app)
 fh_app, rt = fast_app(
@@ -29,6 +31,9 @@ fh_app, rt = fast_app(
 
 # Load configuration data
 load_page_data()
+
+# Initialize database
+create_db_and_tables()
 
 # Register all routes into FastHTML router
 register_all_routes(rt)
