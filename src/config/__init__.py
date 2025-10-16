@@ -30,6 +30,12 @@ from .data_loader import (
     load_shop_categories_data,
     get_featured_products_data,
     load_featured_products_data,
+    # Database functions
+    get_products_from_db,
+    get_categories_from_db,
+    get_db_products_services_data,
+    get_db_shop_categories_data,
+    get_db_featured_products_data,
 )
 
 __all__ = [
@@ -64,4 +70,10 @@ __all__ = [
     'load_shop_categories_data',
     'get_featured_products_data',
     'load_featured_products_data',
+    # Database functions
+    'get_products_from_db',
+    'get_categories_from_db',
+    'get_db_products_services_data',
+    'get_db_shop_categories_data',
+    'get_db_featured_products_data',
 ]

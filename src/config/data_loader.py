@@ -1,5 +1,7 @@
 import yaml
 from pathlib import Path
+from typing import Optional
+from sqlmodel import select
 
 _data = {}
 
@@ -222,3 +224,142 @@ def get_faq_data():
     if 'faq' not in _data:
         load_faq_data()
     return _data['faq']
+
+
+# ============================================================================
+# DATABASE FUNCTIONS - Products and Categories
+# ============================================================================
+
+def get_products_from_db(
+    category_id: Optional[str] = None,
+    featured_only: bool = False,
+    active_only: bool = True,
+    limit: Optional[int] = None
+):
+    """Get products from database
+    
+    Args:
+        category_id: Filter by category ID (e.g., 'writing-instruments')
+        featured_only: Only return featured products
+        active_only: Only return active products
+        limit: Maximum number of products to return
+        
+    Returns:
+        List of product dictionaries
+    """
+    from src.db import get_db_session
+    from src.models import Product
+    
+    session = get_db_session()
+    try:
+        statement = select(Product)
+        
+        if active_only:
+            statement = statement.where(Product.active == True)
+        
+        if category_id and category_id != 'all':
+            statement = statement.where(Product.category_id == category_id)
+        
+        if featured_only:
+            statement = statement.where(Product.featured == True)
+        
+        statement = statement.order_by(Product.sort_order, Product.id)
+        
+        if limit:
+            statement = statement.limit(limit)
+        
+        products = session.exec(statement).all()
+        
+        # Convert to dictionaries
+        return [
+            {
+                'id': p.id,
+                'name': p.name,
+                'category': p.category_id,
+                'price': p.price,
+                'image': p.image,
+                'rating': p.rating,
+                'reviews': p.reviews,
+                'badge': p.badge,
+                'in_stock': p.in_stock,
+                'description': p.description
+            }
+            for p in products
+        ]
+    finally:
+        session.close()
+
+
+def get_categories_from_db(active_only: bool = True):
+    """Get categories from database
+    
+    Args:
+        active_only: Only return active categories
+        
+    Returns:
+        List of category dictionaries
+    """
+    from src.db import get_db_session
+    from src.models import Category
+    
+    session = get_db_session()
+    try:
+        statement = select(Category)
+        
+        if active_only:
+            statement = statement.where(Category.active == True)
+        
+        statement = statement.order_by(Category.sort_order, Category.id)
+        
+        categories = session.exec(statement).all()
+        
+        # Convert to dictionaries
+        return [
+            {
+                'id': c.id,
+                'name': c.name,
+                'description': c.description,
+                'icon': c.icon,
+                'color': c.color,
+                'url': c.url,
+                'checked': c.id == 'all'  # For compatibility with existing templates
+            }
+            for c in categories
+        ]
+    finally:
+        session.close()
+
+
+def get_db_products_services_data():
+    """Get products and services data from database (replaces YAML version)"""
+    # Get metadata from YAML (page titles, labels, etc.)
+    yaml_data = get_products_services_data()
+    
+    # Override products and categories with database data
+    yaml_data['products'] = get_products_from_db()
+    yaml_data['categories'] = get_categories_from_db()
+    
+    return yaml_data
+
+
+def get_db_shop_categories_data():
+    """Get shop categories data from database (replaces YAML version)"""
+    # Get title/subtitle from YAML
+    yaml_data = get_shop_categories_data()
+    
+    # Override categories with database data (exclude 'all' category)
+    db_categories = [c for c in get_categories_from_db() if c['id'] != 'all']
+    yaml_data['categories'] = db_categories
+    
+    return yaml_data
+
+
+def get_db_featured_products_data():
+    """Get featured products data from database (replaces YAML version)"""
+    # Get metadata from YAML (title, subtitle, CTA, etc.)
+    yaml_data = get_featured_products_data()
+    
+    # Override products with database data (featured only)
+    yaml_data['products'] = get_products_from_db(featured_only=True)
+    
+    return yaml_data
