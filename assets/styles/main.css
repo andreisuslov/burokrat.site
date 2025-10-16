@@ -1356,6 +1356,8 @@ footer {
 .expertise-section {
     padding: 4rem 0;
     background: var(--bg-white);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .expertise-section h2 {
@@ -1402,7 +1404,7 @@ footer {
 
 .values-section {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f7f7f7 0%, #ffffff 100%);
+    background: linear-gradient(1deg, #f7f7f7 0%, #ffffff 100%);
 }
 
 .values-section h2 {
@@ -1450,6 +1452,8 @@ footer {
 .locations-section-about {
     padding: 4rem 0;
     background: var(--bg-white);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .locations-section-about h2 {
@@ -1505,15 +1509,17 @@ footer {
 
 .cta-section {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--hover-blue) 100%);
-    color: white;
+    color: var(--accent-gold);
     text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: var(--bg-white);
 }
 
 .cta-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: white;
+    color: var(--accent-gold);
 }
 
 .cta-content p {
@@ -2499,7 +2505,7 @@ footer {
 .search-icon {
     position: absolute;
     left: 1rem;
-    color: #9ca3af;
+    align-items: center;
     display: flex;
     align-items: left;
     pointer-events: none;
@@ -2644,7 +2650,8 @@ footer {
    ================================= */
 
 .bg-gradient-to-br {
-    background: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-via), var(--gradient-to));
+    background: linear-gradient(to top, var(--bg-color), var(--bg-white));
+    border-radius: 20px;
 }
 
 .from-indigo-50 {
@@ -3210,6 +3217,7 @@ footer {
 
 .faq-section {
     background-color: #ffffff;
+    border-radius: 20px;
 }
 
 .faq-accordion {
@@ -3369,6 +3377,7 @@ footer {
 
 .min-h-screen {
     min-height: 100vh;
+    border-radius: 20px;
 }
 
 .bg-gray-50 {
