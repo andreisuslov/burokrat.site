@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from .dropdown import create_dropdown
+from src.components.ui import create_dropdown
 import json
 
 

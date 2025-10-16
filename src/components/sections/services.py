@@ -1,6 +1,6 @@
 """Services section component"""
 from fasthtml.common import *
-from src.components.contact_info import create_service_card
+from src.components.contact import create_service_card
 
 
 def create_services(data):

@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from src.components.error_404 import create_404_page
+from src.components.ui import create_404_page
 from src.components import Layout
 import logging
 

@@ -1,6 +1,6 @@
 from fasthtml.common import *
 from src.utils.phone_formatter import format_phone_number
-from src.components.contact_info import create_company_items, create_social_media_section
+from src.components.contact import create_company_items, create_social_media_section
 
 def create_footer(data):
     """Create footer component with contact information."""

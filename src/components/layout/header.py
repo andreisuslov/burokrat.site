@@ -1,6 +1,6 @@
 from fasthtml.common import *
 from src.config import get_navigation_data
-from src.components.burger_menu import create_burger_menu, burger_menu_script
+from .burger_menu import create_burger_menu, burger_menu_script
 
 def create_header(data):
     """Create header component with logo and navigation."""

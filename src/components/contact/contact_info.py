@@ -1,7 +1,7 @@
 from fasthtml.common import *
 from src.config import get_data
 from src.utils.phone_formatter import format_phone_number
-from src.components.contact_form import create_contact_form
+from .contact_form import create_contact_form
 
 def create_service_card(item):
     """Create a service card component."""
