@@ -1,5 +1,6 @@
 from fasthtml.common import *
 from src.config import get_navigation_data
+from src.components.burger_menu import create_burger_menu, burger_menu_script
 
 def create_header(data):
     """Create header component with logo and navigation."""
@@ -9,6 +10,9 @@ def create_header(data):
         Li(A(item['label'], href=item['url'])) 
         for item in nav_data['main_menu']
     ]
+    
+    # Create burger menu components
+    burger_button, nav_container = create_burger_menu(nav_items)
     
     return [
         Div(
@@ -22,19 +26,9 @@ def create_header(data):
                     cls='logo-link'
                 )
             ),
-            Button(
-                Span(cls='burger-bar'),
-                Span(cls='burger-bar'),
-                cls='burger-btn',
-                id='burgerBtn',
-                aria_label='Menu'
-            ),
-            Nav(
-                Ul(*nav_items, cls='nav-menu'),
-                cls='nav-container',
-                id='navContainer'
-            ),
+            burger_button,
+            nav_container,
             cls='header-content'
         ),
-        Script(src='/assets/scripts/header-nav.js')
+        burger_menu_script()
     ]
