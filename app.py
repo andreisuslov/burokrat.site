@@ -38,6 +38,32 @@ create_db_and_tables()
 # Register all routes into FastHTML router
 register_all_routes(rt)
 
+# Add default 404 handler for FastHTML (must be after all routes)
+from src.components.ui import create_404_page
+from src.components import Layout
+
+async def custom_404_handler(scope, receive, send):
+    """Custom 404 error handler."""
+    from starlette.requests import Request
+    from starlette.responses import HTMLResponse
+    
+    request = Request(scope, receive=receive)
+    logging.info(f"🚫 404 Error: {request.url.path} not found")
+    
+    html_content = Layout(
+        '404 - Page Not Found',
+        Main(
+            create_404_page(),
+            cls='error-404-page'
+        )
+    )
+    
+    response = HTMLResponse(content=to_xml(html_content), status_code=404)
+    await response(scope, receive, send)
+
+# Set the default exception handler for 404 errors
+fh_app.router.default = custom_404_handler
+
 # Create FastAPI app and mount the FastHTML app at root
 app = FastAPI(title="burokrat.site")
 app.mount("/", fh_app)
